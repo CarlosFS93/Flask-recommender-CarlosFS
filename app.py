@@ -9,7 +9,8 @@ app = Flask(__name__)
 with open("model/vec_model.pkl", "rb") as file:
     vec_model = pickle.load(file)
 
-similarity = np.load("model/similarity_matrix.npy")
+data = np.load("model/similarity_matrix.npz")
+similarity = data["arr_0"]
 df = pd.read_csv("model/movies.csv")
 
  #Esta función es una adaptación de la que usé en el modelo
